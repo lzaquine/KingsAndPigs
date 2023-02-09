@@ -109,6 +109,10 @@ let levels = {
       enemy.position.y = 580;
       enemy2.position.x = 0;
       enemy2.position.y = 0;
+      cannon.position.x = 0;
+      cannon.position.y = 0;
+      cannonBall.position.x = 0;
+      cannonBall.position.y = 0;
 
 
       backgroundLevel1 = new Sprite({
@@ -158,6 +162,25 @@ let levels = {
       enemy.position.y = 0;
       enemy2.position.x = 450;
       enemy2.position.y = 350;
+      cannon.position.x = 768.11;
+      cannon.position.y = 643.49;
+      cannonBall.position.x = 0;
+      cannonBall.position.y = 0;
+      /* setTimeout(() => {
+        cannonBall.position.x = 763;
+        cannonBall.position.y = 640;
+      }, 5500) */
+      if(level === 2){
+        setTimeout(() => {
+          cannon.switchSprite('cannonShoot')
+          cannonBall.position.x = 763;
+          cannonBall.position.y = 640;
+          
+        }, 4500)
+      }
+
+      
+      
 
       if(player.currentAnimation) player.currentAnimation.isActive = false
 
@@ -211,6 +234,9 @@ let levels = {
 
       enemy2.position.x = 0;
       enemy2.position.y = 0;
+
+      cannon.position.x = 0;
+      cannon.position.y = 0;
 
       backgroundLevel1 = new Sprite({
         position: {
@@ -525,6 +551,8 @@ function animate() {
   player.draw();
   enemy.draw();
   enemy2.draw();
+  cannonBall.draw();
+  cannon.draw();
   player.update();
   newPos();
 

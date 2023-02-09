@@ -68,6 +68,40 @@ const enemy2 = new Enemy({
     }
   })
 
+const cannon = new Enemy({
+  imageSrc: '/assets/cannon/cannon.png',
+    frameRate: 1,
+  
+    animations: {
+      cannonIdle: {
+        frameRate: 1,
+        frameBuffer: 1,
+        loop: false,
+        imageSrc: '/assets/cannon/cannon.png'
+      },
+      cannonShoot: {
+        frameRate: 4,
+        frameBuffer: 8,
+        loop: false,
+        imageSrc: "/assets/cannon/cannonShoot.png",
+      },
+    }
+})
+
+const cannonBall = new Enemy({
+  imageSrc: '/assets/cannon/cannonBall.png',
+    frameRate: 1,
+  
+    animations: {
+      cannonIdle: {
+        frameRate: 1,
+        frameBuffer: 1,
+        loop: false,
+        imageSrc: '/assets/cannon/cannonBall.png'
+      },
+    }
+})
+
 function newPos() {
     if(enemy.position.x > 550 && !marginLeft && level === 1) {
         enemy.position.x -= enemySpeed;
@@ -98,5 +132,17 @@ function newPos() {
         }
       }
 
+      if(cannonBall.position.x >= 0 && level === 2) {
+        cannonBall.position.x -= enemySpeed;
+      }
+
+      console.log(cannonBall.position.x)
+
+
+      /* if(level === 2){
+        setTimeout(() => {
+          cannon.switchSprite('cannonShoot')
+        }, 4500)
+      } */
 }
 /* newPos(); */

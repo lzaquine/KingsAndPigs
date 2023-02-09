@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+#canvas {
+    width: 100vw;
+    height: 100vh;
+    scale: calc(1.5);
+    background-image: url('assets/press.png');
+    /* background-repeat: no-repeat;
+    background-size: cover; */
+    background-position: center;
+}

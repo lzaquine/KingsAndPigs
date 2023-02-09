@@ -61,10 +61,6 @@ const player = new Player({
       frameBuffer: 5,
       loop: false,
       imageSrc: "/assets/king/leaveDoor.png",
-      /* onComplete: () => {
-        player.switchSprite('idleRight')
-        player.preventInput = false;
-      } */
     },
 
     enterDoor: {
@@ -78,7 +74,6 @@ const player = new Player({
           opacity: 1,
           onComplete: () => {
             level++;
-            console.log(level)
             if(level === 9) level = 1
             levels[level].init();
             player.switchSprite('leaveDoor')
@@ -96,41 +91,6 @@ const player = new Player({
   },
 });
 
-const enemy = new Enemy({
-  imageSrc: '/assets/pigs/idlePigLeft.png',
-  frameRate: 11,
-
-  animations: {
-    idleRight: {
-      frameRate: 11,
-      frameBuffer: 8,
-      loop: true,
-      imageSrc: "/assets/pigs/idlePigRight.png",
-    },
-
-    idleLeft: {
-      frameRate: 11,
-      frameBuffer: 8,
-      loop: true,
-      imageSrc: "/assets/pigs/idlePigLeft.png",
-    },
-
-    runLeft: {
-      frameRate: 6,
-      frameBuffer: 8,
-      loop: true,
-      imageSrc: "/assets/pigs/runPigLeft.png",
-    },
-
-    runRight: {
-      frameRate: 6,
-      frameBuffer: 8,
-      loop: true,
-      imageSrc: "/assets/pigs/runPigRight.png",
-    }
-  }
-})
-
 let level = 1;
 let enemySpeed = 1
 let levels = {
@@ -147,21 +107,10 @@ let levels = {
 
       enemy.position.x = 900;
       enemy.position.y = 580;
+      enemy2.position.x = 0;
+      enemy2.position.y = 0;
 
 
-      
-      
-      /* console.log(enemy.position.x) */
-      /* if(enemy.position.x < 600){ */
-      /* enemy.switchSprite('idleRight') */
-      /* enemy.position.x++ */
-      /* } */
-      /* if (enemy.position.x = 649) {
-        enemy.switchSprite('idleRight')
-        enemy.position.x--;
-      } */
-           
-      
       backgroundLevel1 = new Sprite({
         position: {
           x: 0,
@@ -205,9 +154,10 @@ let levels = {
       player.position.x = 1020;
       player.position.y = 325;
 
-      enemy.position.x = 800;
-      enemy.position.y = 640;
-      /* enemy.switchSprite('idleRight') */
+      enemy.position.x = 0;
+      enemy.position.y = 0;
+      enemy2.position.x = 450;
+      enemy2.position.y = 350;
 
       if(player.currentAnimation) player.currentAnimation.isActive = false
 
@@ -258,6 +208,9 @@ let levels = {
 
       player.position.x = 345;
       player.position.y = 328;
+
+      enemy2.position.x = 0;
+      enemy2.position.y = 0;
 
       backgroundLevel1 = new Sprite({
         position: {
@@ -571,9 +524,11 @@ function animate() {
   player.handleInput(keys);
   player.draw();
   enemy.draw();
+  enemy2.draw();
   player.update();
+  newPos();
 
-  if(enemy.position.x > 550 && !marginLeft) {
+  /* if(enemy.position.x > 550 && !marginLeft) {
     enemy.position.x -= enemySpeed;
     if(enemy.position.x === 550) {
       marginLeft = true
@@ -586,7 +541,7 @@ function animate() {
       enemy.switchSprite('runLeft')
       marginLeft = false
     }
-  }
+  } */
   
   c.save();
   c.globalAlpha = overlay.opacity;

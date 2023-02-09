@@ -171,13 +171,18 @@ let levels = {
         cannonBall.position.y = 640;
       }, 5500) */
       if(level === 2){
-        setTimeout(() => {
+        /* setTimeout(() => {
           cannon.switchSprite('cannonShoot')
           cannonBall.position.x = 763;
           cannonBall.position.y = 640;
           
+        }, 4500) */
+        setInterval(() => {
+          cannon.switchSprite('cannonShoot')
+            cannonBall.position.x = 763;
+            cannonBall.position.y = 640;
         }, 4500)
-      }
+      } 
 
       
       

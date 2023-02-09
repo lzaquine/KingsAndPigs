@@ -96,9 +96,43 @@ const player = new Player({
   },
 });
 
-console.log(player)
+const enemy = new Enemy({
+  imageSrc: '/assets/pigs/idlePigLeft.png',
+  frameRate: 11,
+
+  animations: {
+    idleRight: {
+      frameRate: 11,
+      frameBuffer: 8,
+      loop: true,
+      imageSrc: "/assets/pigs/idlePigRight.png",
+    },
+
+    idleLeft: {
+      frameRate: 11,
+      frameBuffer: 8,
+      loop: true,
+      imageSrc: "/assets/pigs/idlePigLeft.png",
+    },
+
+    runLeft: {
+      frameRate: 6,
+      frameBuffer: 8,
+      loop: true,
+      imageSrc: "/assets/pigs/runPigLeft.png",
+    },
+
+    runRight: {
+      frameRate: 6,
+      frameBuffer: 8,
+      loop: true,
+      imageSrc: "/assets/pigs/runPigRight.png",
+    }
+  }
+})
 
 let level = 1;
+let enemySpeed = 1
 let levels = {
   1: {
     init: () => {
@@ -111,6 +145,23 @@ let levels = {
       player.position.x = 500;
       player.position.y = 560;
 
+      enemy.position.x = 900;
+      enemy.position.y = 580;
+
+
+      
+      
+      /* console.log(enemy.position.x) */
+      /* if(enemy.position.x < 600){ */
+      /* enemy.switchSprite('idleRight') */
+      /* enemy.position.x++ */
+      /* } */
+      /* if (enemy.position.x = 649) {
+        enemy.switchSprite('idleRight')
+        enemy.position.x--;
+      } */
+           
+      
       backgroundLevel1 = new Sprite({
         position: {
           x: 0,
@@ -153,6 +204,10 @@ let levels = {
       player.collisionBlocks = collisionBlocks;
       player.position.x = 1020;
       player.position.y = 325;
+
+      enemy.position.x = 800;
+      enemy.position.y = 640;
+      /* enemy.switchSprite('idleRight') */
 
       if(player.currentAnimation) player.currentAnimation.isActive = false
 
@@ -500,6 +555,8 @@ const overlay = {
   opacity: 0,
 };
 
+let marginLeft = false
+
 function animate() {
   window.requestAnimationFrame(animate);
   backgroundLevel1.draw();
@@ -513,8 +570,23 @@ function animate() {
   
   player.handleInput(keys);
   player.draw();
+  enemy.draw();
   player.update();
-  
+
+  if(enemy.position.x > 550 && !marginLeft) {
+    enemy.position.x -= enemySpeed;
+    if(enemy.position.x === 550) {
+      marginLeft = true
+    }
+  } 
+  if(enemy.position.x > 545 && marginLeft){
+    enemy.position.x += enemySpeed;
+    enemy.switchSprite('runRight')
+    if(enemy.position.x > 900) {
+      enemy.switchSprite('runLeft')
+      marginLeft = false
+    }
+  }
   
   c.save();
   c.globalAlpha = overlay.opacity;

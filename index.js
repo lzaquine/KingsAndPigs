@@ -12,7 +12,7 @@ let doors;
 const player = new Player({
   imageSrc: "/assets/king/leaveDoor.png",
   frameRate: 11,
-  
+
   animations: {
     idleRight: {
       frameRate: 11,
@@ -74,13 +74,13 @@ const player = new Player({
           opacity: 1,
           onComplete: () => {
             level++;
-            if(level === 9) level = 1
+            if (level === 9) level = 1;
             levels[level].init();
-            player.switchSprite('leaveDoor')
+            player.switchSprite("leaveDoor");
             setTimeout(() => {
-              player.switchSprite('idleRight')
+              player.switchSprite("idleRight");
               player.preventInput = false;
-            }, 1000)
+            }, 1000);
             gsap.to(overlay, {
               opacity: 0,
             });
@@ -92,15 +92,15 @@ const player = new Player({
 });
 
 let level = 1;
-let enemySpeed = 1
+let enemySpeed = 1;
 let levels = {
   1: {
     init: () => {
       parsedCollisions = collisionsLevel1.parse2D();
       collisionBlocks = parsedCollisions.createObjectsFrom2D();
       player.collisionBlocks = collisionBlocks;
-      if(player.currentAnimation) player.currentAnimation.isActive = false
-      player.switchSprite('idleRight')
+      if (player.currentAnimation) player.currentAnimation.isActive = false;
+      player.switchSprite("idleRight");
       player.preventInput = false;
       player.position.x = 500;
       player.position.y = 560;
@@ -113,7 +113,6 @@ let levels = {
       cannon.position.y = 0;
       cannonBall.position.x = 0;
       cannonBall.position.y = 0;
-
 
       backgroundLevel1 = new Sprite({
         position: {
@@ -166,11 +165,8 @@ let levels = {
       cannon.position.y = 643.49;
       cannonBall.position.x = 0;
       cannonBall.position.y = 0;
-      /* setTimeout(() => {
-        cannonBall.position.x = 763;
-        cannonBall.position.y = 640;
-      }, 5500) */
-      if(level === 2){
+
+      if (level === 2) {
         /* setTimeout(() => {
           cannon.switchSprite('cannonShoot')
           cannonBall.position.x = 763;
@@ -178,16 +174,19 @@ let levels = {
           
         }, 4500) */
         setInterval(() => {
-          cannon.switchSprite('cannonShoot')
-            cannonBall.position.x = 763;
-            cannonBall.position.y = 640;
-        }, 4500)
-      } 
+          cannon.switchSprite("cannonShoot");
+          cannonBall.position.x = 763;
+          cannonBall.position.y = 640;
+        }, 4500);
+        /* if(level !== 2) {
+          cannonBall.position.x = 0;
+          cannonBall.position.y = 0;
+        } */
+      }
 
-      
-      
+      // need to fix this because the ball is showing up on another levels and also the cannonshoot sprite only runs once
 
-      if(player.currentAnimation) player.currentAnimation.isActive = false
+      if (player.currentAnimation) player.currentAnimation.isActive = false;
 
       backgroundLevel1 = new Sprite({
         position: {
@@ -231,17 +230,17 @@ let levels = {
       collisionBlocks = parsedCollisions.createObjectsFrom2D();
       player.collisionBlocks = collisionBlocks;
 
-      if(player.currentAnimation) player.currentAnimation.isActive = false
-
+      if (player.currentAnimation) player.currentAnimation.isActive = false;
 
       player.position.x = 345;
       player.position.y = 328;
 
       enemy2.position.x = 0;
       enemy2.position.y = 0;
-
       cannon.position.x = 0;
       cannon.position.y = 0;
+      cannonBall.position.x = 0;
+      cannonBall.position.y = 0;
 
       backgroundLevel1 = new Sprite({
         position: {
@@ -285,8 +284,7 @@ let levels = {
       collisionBlocks = parsedCollisions.createObjectsFrom2D();
       player.collisionBlocks = collisionBlocks;
 
-      if(player.currentAnimation) player.currentAnimation.isActive = false
-
+      if (player.currentAnimation) player.currentAnimation.isActive = false;
 
       player.position.x = 479;
       player.position.y = 328;
@@ -333,11 +331,10 @@ let levels = {
       collisionBlocks = parsedCollisions.createObjectsFrom2D();
       player.collisionBlocks = collisionBlocks;
 
-      if(player.currentAnimation) player.currentAnimation.isActive = false
+      if (player.currentAnimation) player.currentAnimation.isActive = false;
 
       player.position.x = 315;
       player.position.y = 275;
-      
 
       backgroundLevel1 = new Sprite({
         position: {
@@ -381,12 +378,11 @@ let levels = {
       collisionBlocks = parsedCollisions.createObjectsFrom2D();
       player.collisionBlocks = collisionBlocks;
 
-      if(player.currentAnimation) player.currentAnimation.isActive = false
-
+      if (player.currentAnimation) player.currentAnimation.isActive = false;
 
       player.position.x = 447;
       player.position.y = 616;
-      
+
       backgroundLevel1 = new Sprite({
         position: {
           x: 0,
@@ -429,12 +425,11 @@ let levels = {
       collisionBlocks = parsedCollisions.createObjectsFrom2D();
       player.collisionBlocks = collisionBlocks;
 
-      if(player.currentAnimation) player.currentAnimation.isActive = false
-
+      if (player.currentAnimation) player.currentAnimation.isActive = false;
 
       player.position.x = 864;
       player.position.y = 360;
-      
+
       backgroundLevel1 = new Sprite({
         position: {
           x: 0,
@@ -459,7 +454,7 @@ let levels = {
         new Sprite({
           position: {
             x: 415.95,
-            y: 583.90,
+            y: 583.9,
           },
           imageSrc: "/assets/king/doorOpen.png",
           frameRate: 5,
@@ -477,12 +472,11 @@ let levels = {
       collisionBlocks = parsedCollisions.createObjectsFrom2D();
       player.collisionBlocks = collisionBlocks;
 
-      if(player.currentAnimation) player.currentAnimation.isActive = false
-
+      if (player.currentAnimation) player.currentAnimation.isActive = false;
 
       player.position.x = 832;
       player.position.y = 328;
-      
+
       backgroundLevel1 = new Sprite({
         position: {
           x: 0,
@@ -531,27 +525,28 @@ const keys = {
     pressed: false,
   },
   s: {
-    pressed: false
-  }
+    pressed: false,
+  },
 };
 
 const overlay = {
   opacity: 0,
 };
 
-let marginLeft = false
+let marginLeft = false;
 
 function animate() {
   window.requestAnimationFrame(animate);
   backgroundLevel1.draw();
+
   collisionBlocks.forEach((collisionBlock) => {
     collisionBlock.draw();
   });
-  
+
   doors.forEach((door) => {
     door.draw();
   });
-  
+
   player.handleInput(keys);
   player.draw();
   enemy.draw();
@@ -561,21 +556,6 @@ function animate() {
   player.update();
   newPos();
 
-  /* if(enemy.position.x > 550 && !marginLeft) {
-    enemy.position.x -= enemySpeed;
-    if(enemy.position.x === 550) {
-      marginLeft = true
-    }
-  } 
-  if(enemy.position.x > 545 && marginLeft){
-    enemy.position.x += enemySpeed;
-    enemy.switchSprite('runRight')
-    if(enemy.position.x > 900) {
-      enemy.switchSprite('runLeft')
-      marginLeft = false
-    }
-  } */
-  
   c.save();
   c.globalAlpha = overlay.opacity;
   c.fillStyle = "black";
@@ -583,13 +563,10 @@ function animate() {
   c.restore();
 }
 levels[level].init();
-/* animate(); */
 
-document.addEventListener('keydown', (e) => {
-  switch(e.code) {
-      case 'Enter':
-          /* levels[level].init(); */
-          animate();
-      } 
-  
-})
+document.addEventListener("keydown", (e) => {
+  switch (e.code) {
+    case "Enter":
+      animate();
+  }
+});

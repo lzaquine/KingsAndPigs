@@ -1,5 +1,5 @@
 const enemy = new Enemy({
-  imageSrc: "/assets/pigs/idlePigLeft.png",
+  imageSrc: "assets/pigs/idlePigLeft.png",
   frameRate: 11,
 
   animations: {
@@ -7,28 +7,28 @@ const enemy = new Enemy({
       frameRate: 11,
       frameBuffer: 8,
       loop: true,
-      imageSrc: "/assets/pigs/idlePigRight.png",
+      imageSrc: "assets/pigs/idlePigRight.png",
     },
 
     idleLeft: {
       frameRate: 11,
       frameBuffer: 8,
       loop: true,
-      imageSrc: "/assets/pigs/idlePigLeft.png",
+      imageSrc: "assets/pigs/idlePigLeft.png",
     },
 
     runLeft: {
       frameRate: 6,
       frameBuffer: 8,
       loop: true,
-      imageSrc: "/assets/pigs/runPigLeft.png",
+      imageSrc: "assets/pigs/runPigLeft.png",
     },
 
     runRight: {
       frameRate: 6,
       frameBuffer: 8,
       loop: true,
-      imageSrc: "/assets/pigs/runPigRight.png",
+      imageSrc: "assets/pigs/runPigRight.png",
     },
   },
   width: 20,
@@ -36,7 +36,7 @@ const enemy = new Enemy({
 });
 
 const enemy2 = new Enemy({
-  imageSrc: "/assets/pigs/idlePigRight.png",
+  imageSrc: "assets/pigs/idlePigRight.png",
   frameRate: 11,
 
   animations: {
@@ -44,28 +44,28 @@ const enemy2 = new Enemy({
       frameRate: 11,
       frameBuffer: 8,
       loop: true,
-      imageSrc: "/assets/pigs/idlePigRight.png",
+      imageSrc: "assets/pigs/idlePigRight.png",
     },
 
     idleLeft: {
       frameRate: 11,
       frameBuffer: 8,
       loop: true,
-      imageSrc: "/assets/pigs/idlePigLeft.png",
+      imageSrc: "assets/pigs/idlePigLeft.png",
     },
 
     runLeft: {
       frameRate: 6,
       frameBuffer: 8,
       loop: true,
-      imageSrc: "/assets/pigs/runPigLeft.png",
+      imageSrc: "assets/pigs/runPigLeft.png",
     },
 
     runRight: {
       frameRate: 6,
       frameBuffer: 8,
       loop: true,
-      imageSrc: "/assets/pigs/runPigRight.png",
+      imageSrc: "assets/pigs/runPigRight.png",
     },
   },
   width: 20,
@@ -73,7 +73,7 @@ const enemy2 = new Enemy({
 });
 
 const cannon = new Enemy({
-  imageSrc: "/assets/cannon/cannon.png",
+  imageSrc: "assets/cannon/cannon.png",
   frameRate: 1,
 
   animations: {
@@ -81,19 +81,19 @@ const cannon = new Enemy({
       frameRate: 1,
       frameBuffer: 1,
       loop: false,
-      imageSrc: "/assets/cannon/cannon.png",
+      imageSrc: "assets/cannon/cannon.png",
     },
     cannonShoot: {
       frameRate: 4,
       frameBuffer: 8,
       loop: false,
-      imageSrc: "/assets/cannon/cannonShoot.png",
+      imageSrc: "assets/cannon/cannonShoot.png",
     },
   },
 });
 
 const cannonBall = new Enemy({
-  imageSrc: "/assets/cannon/cannonBall.png",
+  imageSrc: "assets/cannon/cannonBall.png",
   frameRate: 1,
 
   animations: {
@@ -101,7 +101,7 @@ const cannonBall = new Enemy({
       frameRate: 1,
       frameBuffer: 1,
       loop: false,
-      imageSrc: "/assets/cannon/cannonBall.png",
+      imageSrc: "assets/cannon/cannonBall.png",
     },
   },
   width: 10,

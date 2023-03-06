@@ -10,7 +10,7 @@
   height: 100vh;
   scale: calc(1.5);
   background-image: url("assets/press.png");
-  /* background-repeat: no-repeat;
-    background-size: cover; */
+  background-repeat: no-repeat;
+    background-size: cover;
   background-position: center;
 }
